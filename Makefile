@@ -7,18 +7,11 @@ CFLAGS := -g -O3 -Wall -Wextra -std=c++11
 
 all: $(TARGETS)
 
-FooBaa: src/FooBaa.cpp
-	g++ $(CFLAGS) -o FooBaa src/FooBaa.cpp
+ConcatRemoveTest: src/ConcatRemoveTest.cpp src/ConcatRemove.cpp
+	g++ -o ConcatRemoveTest $(CFLAGS)  $? -DTESTING
 
-ConcatRemove: src/ConcatRemove.cpp
-	g++ $(CFLAGS) -o ConcatRemove src/ConcatRemove.cpp
-
-ConcatRemoveTest: src/ConcatRemoveTest.cpp
-	g++ -c -o ConcatRemove.o src/ConcatRemove.cpp -DTESTING
-	g++ $(CFLAGS) -o ConcatRemoveTest ConcatRemove.o src/ConcatRemoveTest.cpp
-
-StringLenght: src/StringLenght.cpp
-	g++ $(CFLAGS) -o StringLenght src/StringLenght.cpp
+%: src/%.cpp
+	g++ $(CFLAGS) -o $@ $<
 
 test-all: $(TESTSUBJECTS)
 	echo $(TESTSUBJECTS)
