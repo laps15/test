@@ -2,34 +2,9 @@
 #include <string>
 #include <cassert>
 
-#define max(a,b) ((a>b)?(a):(b))
-#define min(a,b) ((a<b)?(a):(b))
+#include "lib/ConcatRemove.h"
 
 using namespace std;
-
-int get_equal_prefix_length(string &a, string &b) {
-    int min_len = min(a.length(), b.length());
-    int prefix_size = 0;
-
-    while (a[prefix_size] == b[prefix_size] && prefix_size++ < min_len);
-
-    return prefix_size;
-}
-
-int get_diff(string &s, string &t) {
-    int prefix_size = get_equal_prefix_length(s,t);
-
-    return (s.length()-prefix_size)+(t.length()-prefix_size);
-}
-
-const string concat_remove(string &s, string &t, int k) {
-    int diff = get_diff(s,t);
-
-    if (diff <= k) {
-        return "yes";
-    }
-    return"no";
-}
 
 int main() {
     string test_cases[][4] = {
@@ -90,7 +65,7 @@ int main() {
         int k = stoi(test_case[2]);
         string expected_output = test_case[3];
 
-        string output = concat_remove(test_case[0], test_case[1], k);
+        string output = ConcatRemove::concat_remove(test_case[0], test_case[1], k);
         if (expected_output != output) {
             cout << "Error on test case #" << test_case_index << endl;
             cout << "\tFailed asserting that function returns expected value: " << expected_output << " returned " << output << " instead." << endl;
