@@ -15,7 +15,15 @@
   * `make ConcatRemoveTest` for compiling.
   * `make ConcatRemoveTest.test` for testing.
 
+
+* Question 9:
+  
+  * `make StringLenght` for compiling.
+  * `make StringLenght.test` for testing.
+
 ### Testing
 Testing against expected input/output can be made using the `make ${target}.test` command for specific unity testing, or `make test-all` to test all solutions.
+
+Expected output is found under test-oi/${target}.out, and inputs under test-oi/${target}.in
 
 ## SQL solutions are found under SQL
