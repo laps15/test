@@ -32,21 +32,6 @@ const string ConcatRemove::concat_remove(string &s, string &t, int k) {
     return"no";
 }
 
-int get_equal_prefix_length(string &a, string &b) {
-    int min_len = min(a.length(), b.length());
-    int prefix_size = 0;
-
-    while (a[prefix_size] == b[prefix_size] && prefix_size++ < min_len);
-
-    return prefix_size;
-}
-
-int get_diff(string &s, string &t) {
-    int prefix_size = get_equal_prefix_length(s,t);
-
-    return (s.length()-prefix_size)+(t.length()-prefix_size);
-}
-
 #ifndef TESTING
 int main() {
     string s, t;

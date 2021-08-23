@@ -6,6 +6,7 @@
 
 using namespace std;
 
+#ifdef TESTING
 int main() {
     string test_cases[][4] = {
         {
@@ -78,3 +79,4 @@ int main() {
     cout << "All test cases passed." << endl;
     return 0;
 }
+#endif
