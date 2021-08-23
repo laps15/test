@@ -32,3 +32,6 @@ Testing against expected input/output can be made using the `make ${target}.test
 Expected output is found under test-oi/${target}.out, and inputs under test-oi/${target}.in
 
 ## SQL solutions are found under SQL
+
+  * Solutions were tested both on local MariaDB server and MariaDB section of https://sqliteonline.com.
+  For the latter you need to comment the first two lines beacuse the user does not have acces to create or change the database used by the. tool
