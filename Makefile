@@ -14,11 +14,10 @@ ConcatRemoveTest: src/ConcatRemoveTest.cpp src/ConcatRemove.cpp
 	g++ $(CFLAGS) -o $@ $<
 
 test-all: $(TESTSUBJECTS)
-	echo $(TESTSUBJECTS)
 
 %.test: % $(TESTDIR)/%.in $(TESTDIR)/%.out
 	./$< < $(word 2, $?) | diff - $(word 3, $?) && \
-	echo "$@ passed" || echo "$@ failed. :("
+	echo "\n\033[0;32m$@ passed\033[0m\n" || echo -e "\n\033[0;31m$@ failed. :(\033[0m\n"
 
 clean:
 	rm -rf $(TARGETS) *.o
